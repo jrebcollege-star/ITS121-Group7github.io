@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client FAQ | XPORT XPERTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;       
+            --bg-secondary: #161b22;  
+            --border-color: #30363d;  
+            --text-primary: #c9d1d9;  
+            --text-muted: #8b949e;    
+            --accent: #58a6ff;        
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        header {
+            background-color: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        nav .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-secondary);
+            min-width: 160px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted);
+            padding: 12px 16px;
+            margin-left: 0;
+            display: block;
+        }
+
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .faq-hero {
+            padding: 80px 0 40px 0;
+            text-align: center;
+        }
+
+        /* Search Feature */
+        .search-container {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        #faqSearch {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Roboto', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #faqSearch:focus {
+            border-color: var(--accent);
+        }
+
+        /* Accordion Logic */
+        .faq-item {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            padding: 0 20px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .faq-item.active {
+            border-color: var(--accent);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 20px 20px;
+            opacity: 1;
+        }
+
+        .icon-toggle {
+            color: var(--accent);
+            font-family: 'Roboto Mono', monospace;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-toggle {
+            transform: rotate(45deg);
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        .footer-bottom {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">XPORT_XPERTS</a>
+            <nav>
+                <div class="nav-item">
+                    <a href="#" class="active">Menu ▼</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="whymcs.html">Why MCS PH</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="join.html">Join Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="faq-hero">
+            <p class="mono">// KNOWLEDGE_BASE</p>
+            <h1 style="font-size: 3rem; color: #f0f6fc; margin-top: 10px;">Client FAQ</h1>
+            <p style="color: var(--text-muted); margin-top: 15px;">Everything you need to know about partnering with a fully online BPO.</p>
+        </section>
+
+        <div class="search-container">
+            <input type="text" id="faqSearch" placeholder="Search for keywords (e.g., security, pricing, hours)...">
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How does a fully online BPO ensure reliability?</h3>
+                    <span class="icon-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our decentralized model is our greatest strength. Unlike physical offices that are vulnerable to local power outages or transit strikes, our workforce is distributed. We require all agents to have secondary power (UPS) and backup internet connections (fiber + 5G) to maintain 99.9% uptime.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is the typical time-to-hire?</h3>
+                    <span class="icon-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Depending on the technical requirements, we can typically deploy a vetted team within 2 to 4 weeks. For high-stakes roles like IPv4 management, we ensure specialized training is completed before the go-live date.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do you handle sensitive client data?</h3>
+                    <span class="icon-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We implement strict endpoint security protocols. This includes encrypted connections (VPN), multi-factor authentication (MFA), and strictly controlled access to client environments. We can also adapt to your specific internal security software requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can we scale the team size on short notice?</h3>
+                    <span class="icon-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Our agile recruitment pipeline allows us to scale up during peak seasons or high-growth phases. We maintain a "ready-to-deploy" talent pool to ensure minimal friction when adding seats.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you provide technical advising or just staffing?</h3>
+                    <span class="icon-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer specialized advising in niche sectors like IPv4 brokerage and iGaming operations. We don't just provide "warm bodies"; we provide subject matter experts who can help optimize your workflows and documentation processes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom mono">
+            <p>&copy; 2026 XPORT XPERTS. All Rights Reserved.</p>
+            <p>Makati City, Metro Manila, Philippines</p>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Search Functionality
+        document.getElementById('faqSearch').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if(text.includes(term)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
