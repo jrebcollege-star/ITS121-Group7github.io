@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORT XPERTS | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;       
+            --bg-secondary: #161b22;  
+            --border-color: #30363d;  
+            --text-primary: #c9d1d9;  
+            --text-muted: #8b949e;    
+            --accent: #58a6ff;        
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        nav .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-secondary);
+            min-width: 160px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+        }
+
+        .dropdown-content a {
+            color: var(--text-muted);
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .nav-item:hover .dropdown-content { display: block; }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            height: 500px;
+            background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.8)), 
+                        url('https://i.pinimg.com/736x/52/bc/92/52bc921a49e30b25286253cd86b81fb0.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .badge {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        #hero-title {
+            font-size: 4rem;
+            color: #f0f6fc;
+            min-height: 1.2em;
+        }
+
+        /* --- Scroll Reveal --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Sections --- */
+        section { padding: 100px 0; }
+        .section-divider { border: 0; height: 1px; background: var(--border-color); }
+
+        .image-half img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.5s;
+        }
+
+        .image-half img:hover { transform: scale(1.02); }
+
+        .btn-primary {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 12px 30px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-family: 'Roboto Mono', monospace;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+        }
+
+        /* --- Business Scope --- */
+        .scope-title h3 { font-size: 3rem; line-height: 1; }
+        .highlight { color: var(--accent); }
+        .decoration-line { width: 60px; height: 4px; background: var(--accent); margin-top: 15px; }
+
+        /* --- What We Do Best --- */
+        .pillar-info { background-color: var(--bg-secondary); text-align: center; }
+        .pillar-info h1 { margin-bottom: 60px; color: #f0f6fc; }
+
+        .card {
+            background-color: var(--bg-main);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            flex: 1;
+            text-align: left;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .card-num {
+            color: var(--accent);
+            font-weight: bold;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--border-color); }
+        .footer-links a { color: var(--text-muted); margin: 0 15px; text-decoration: none; font-size: 0.8rem; }
+        .footer-hr { border: 0; border-top: 1px solid var(--border-color); margin: 30px auto; width: 100px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">XPORT_XPERTS</a>
+            <nav>
+                <div class="nav-item">
+                    <a href="#" class="active">Menu ▼</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="whymcs.html">Why MCS PH</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="join.html">Join Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-overlay">
+            <div class="badge">EST. 2026</div>
+            <h1 id="hero-title"></h1>
+            <p class="mono">// BPO Consultancy & Commercial Services</p>
+        </div>
+    </div>
+
+    <section class="split-content reveal">
+        <div class="container">
+            <div class="image-half">
+                <img src="https://i.pinimg.com/1200x/15/21/c7/1521c7781296d344caf0426669695a5d.jpg" alt="BPO Operations">
+            </div>
+            <div class="text-half">
+                <h2 class="mono" style="color: var(--accent); margin-bottom: 10px;">// IDENTITY</h2>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #f0f6fc;">Who We Are</h2>
+                <p>The Philippines remains the top English-speaking country among developing nations, maintaining a spot in the world’s top 20 for English proficiency. Based on its historical background, Filipinos offer unparalleled communication skills for the global market.</p>
+                <p style="margin-top: 15px; color: var(--text-muted);">MCS PH was established to bridge the gap between global demand and quality Philippine talent, enriching lives while providing world-class BPO consultancy.</p>
+                <a href="about.html" class="btn-primary">LEARN_MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="scope-section reveal">
+        <div class="container">
+            <div class="scope-title">
+                <h3 style="color: #f0f6fc;">BUSINESS</h3>
+                <h3 class="highlight">SCOPE</h3>
+                <div class="decoration-line"></div>
+            </div>
+            <div class="scope-text">
+                <p>Our project is structured to execute three primary functions: Providing data-driven guidance on Philippine BPO integration, managing contractual agreements, and modeling operational structures tailored to client growth.</p>
+                <p style="margin-top: 15px; color: var(--text-muted);">By adopting a decentralized, online-first model, we provide 24/7 support and modern efficiency without the premium price tag.</p>
+                <a href="services.html" class="btn-primary">VIEW_SERVICES</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillar-info reveal">
+        <div class="container" style="display: block;">
+            <p class="mono" style="margin-bottom: 10px;">// CORE_COMPETENCIES</p>
+            <h1>What we do best</h1>
+            <div style="display: flex; gap: 20px;">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h4 style="color: #f0f6fc; margin-bottom: 15px;">Advisory</h4>
+                    <p style="color: var(--text-muted);">Providing strategic guidance on BPO integration within the Philippine market using local data.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h4 style="color: #f0f6fc; margin-bottom: 15px;">Facilitation</h4>
+                    <p style="color: var(--text-muted);">Managing service-level agreements (SLAs) between international investors and local operations.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h4 style="color: #f0f6fc; margin-bottom: 15px;">Pathing</h4>
+                    <p style="color: var(--text-muted);">Modeling cost and headcount structures for specific growth stages, from startup to enterprise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="services.html">Business</a>
+            <a href="#">Newsroom</a>
+            <a href="#">People</a>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom mono">
+            <p>&copy; 2026 XPORT XPERTS. All Rights Reserved.</p>
+            <p>Makati City, Metro Manila, Philippines</p>
+            <p>Developed by Jhio Belo, Marcus Villanueva</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Typewriter Effect ---
+        const titleText = "XPORT XPERTS";
+        let i = 0;
+        function typeWriter() {
+            if (i < titleText.length) {
+                document.getElementById("hero-title").innerHTML += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+
+        // --- Scroll Reveal Effect ---
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add("active");
+                }
+            });
+        }
+
+        // --- Initialize ---
+        window.addEventListener("scroll", reveal);
+        window.onload = () => {
+            typeWriter();
+            reveal();
+        };
+    </script>
+</body>
+</html>

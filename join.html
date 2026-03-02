@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team | XPORT XPERTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<style>
+/* Consistent CSS Lel */
+:root {
+    --bg-main: #0d1117;       
+    --bg-secondary: #161b22;  
+    --border-color: #30363d;  
+    --text-primary: #c9d1d9;  
+    --text-muted: #8b949e;    
+    --accent: #58a6ff;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 40px;
+}
+
+.mono {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+header {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+nav a {
+    color: var(--text-muted);
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+nav a.active, nav a:hover {
+    color: var(--accent);
+}
+
+.card {
+    background-color: var(--bg-main);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    flex: 1;
+}
+
+.btn-primary {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    color: var(--bg-main);
+}
+.admin-btn {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-right: 10px; 
+}
+
+.admin-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: rgba(88, 166, 255, 0.1);
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.footer-hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 30px auto;
+    width: 30%;
+}
+
+.footer-bottom {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* New CSS Stuff */
+
+.join-box {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.join-form input, .join-form select, .join-form textarea {
+    width: 100%;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 4px;
+}
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-secondary);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border: 1px solid var(--border-color);
+        }
+        .dropdown-content a {
+            color: var(--text-muted);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin-left: 0;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--bg-main);
+            color: var(--accent);
+        }
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+        /* Image map container */
+        .pillar-map {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .pillar-map img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+</style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">XPORT_XPERTS</a>
+            <nav>
+              <a href="admin.html" class="admin-btn">Admin</a>
+                <div class="nav-item">
+                    <a href="#" class="active">Menu ▼</a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="whymcs.html">Why MCS PH</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="join.html">Join Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<section class="join-box">
+    <h1 style="font-size: 2.8rem; color:#f0f6fc;">Join Our Team</h1>
+    <p style="color: var(--text-muted); max-width: 550px; margin: 10px auto;">
+        Become part of our 24/7 chat support operations and grow your career with XPORT XPERTS.
+    </p>
+</section>
+
+<hr class="section-divider">
+
+<section style="background-color: var(--bg-secondary); padding: 80px 0;">
+    <div class="container">
+
+        <div class="card">
+            <h3 class="mono">WHY_JOIN_US</h3>
+            <ul style="margin-top:15px; padding-left:20px; color:var(--text-muted);">
+                <li><strong>100% Remote Work Environment:</strong> Work from the comfort of your home or any location of your choice while staying fully connected to a professional global team. No commuting, no fixed office hours—just focused, productive work.</li>
+                <li><strong>Flexible Night Shift Opportunities:</strong> Tailored schedules for night owls or those with daytime commitments. Enjoy the freedom to choose shifts that fit your lifestyle while still meeting operational needs of our 24/7 support services.</li>
+                <li><strong>Performance-Based Growth:</strong> Your contributions are recognized and rewarded. Promotions, bonuses, and role expansions are based on measurable performance metrics, dedication, and skill development rather than just tenure.</li>
+                <li><strong>Supportive Global Team:</strong> Collaborate with experienced colleagues across the globe who provide guidance, mentorship, and feedback. Build strong professional relationships while learning industry best practices and remote work techniques.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3 style="color:#f0f6fc; margin-bottom:20px;">Applicant Form</h3>
+
+            <form class="join-form" action="#" method="post">
+
+                <div style="margin-bottom:15px;">
+                    <label class="mono">FULL_NAME</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div style="margin-bottom:15px;">
+                    <label class="mono">EMAIL_ADDRESS</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div style="margin-bottom:15px;">
+                    <label class="mono">POSITION_APPLYING</label>
+                    <select name="position">
+                        <option>Chat Support Agent</option>
+                        <option>Technical Support</option>
+                        <option>Telemarketing</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom:20px;">
+                    <label class="mono">EXPERIENCE_SUMMARY</label>
+                    <textarea rows="4" placeholder="Briefly describe your experience"></textarea>
+                </div>
+
+                <input type="submit" value="SUBMIT_APPLICATION" class="btn-primary" style="width:100%;">
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="services.html">Business</a>
+        <a href="#">Newsroom</a>
+        <a href="#">People</a>
+    </div>
+    <hr class="footer-hr">
+    <div class="footer-bottom mono">
+        <p>&copy; 2026 XPORT XPERTS. All Rights Reserved.</p>
+        <p>Makati City, Metro Manila, Philippines</p>
+        <p>Developed By Mariele Veterbo, Marcus Villanueva, Prince Villanueva</p>
+    </div>
+</footer>
+<script>
+document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get existing data or start new array
+        const storageKey = this.classList.contains('join-form') ? 'applications' : 'inquiries';
+        const existingData = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        
+        // Create data object from form
+        const formData = new FormData(this);
+        const newEntry = Object.fromEntries(formData.entries());
+        newEntry.timestamp = new Date().toLocaleString();
+        
+        // Save back to local storage
+        existingData.push(newEntry);
+        localStorage.setItem(storageKey, JSON.stringify(existingData));
+        
+        alert('Data submitted successfully!');
+        this.reset();
+    });
+});
+</script>
+</body>
+</html>
